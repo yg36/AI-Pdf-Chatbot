@@ -1,10 +1,10 @@
-📚 AI PDF Chatbot (RAG-based Conversational QA System)
+**📚 AI PDF Chatbot (RAG-based Conversational QA System)**
 
 An end-to-end Retrieval-Augmented Generation (RAG) system that allows users to upload multiple PDFs and interact with them using natural language queries.
 
 Built to simulate real-world AI systems used in knowledge assistants, document search, and enterprise chatbots.
 
-🚀 Features
+**🚀 Features**
 📄 Upload and process multiple PDF documents
 ✂️ Intelligent text chunking for better retrieval
 🧠 Semantic search using vector embeddings (FAISS)
@@ -12,7 +12,8 @@ Built to simulate real-world AI systems used in knowledge assistants, document s
 💬 Conversational memory for multi-turn chat
 ⚡ Interactive UI using Streamlit
 🔄 Switch between OpenAI (paid) and HuggingFace (free) embeddings
-🧠 How It Works (RAG Pipeline)
+
+**🧠 How It Works (RAG Pipeline)**
 PDF Ingestion → Extract text using PyPDF2
 Chunking → Split text into overlapping chunks
 Embedding → Convert chunks into vectors
@@ -20,7 +21,8 @@ Vector Store → Store embeddings in FAISS
 Retrieval → Fetch relevant chunks for query
 LLM Generation → Generate answer using retrieved context
 Memory → Maintain chat history for conversation continuity
-🛠️ Tech Stack
+
+**🛠️ Tech Stack**
 Language: Python
 Frameworks/Libraries: LangChain, Streamlit
 LLM: OpenAI (ChatOpenAI)
@@ -28,14 +30,16 @@ Vector DB: FAISS
 Embeddings: OpenAI / HuggingFace
 PDF Processing: PyPDF2
 Environment Management: python-dotenv
-📂 Project Structure
+
+**📂 Project Structure**
 AI-PDF-Chatbot/
 │── app.py
 │── htmlTemplates.py
 │── requirements.txt
 │── .env
 │── README.md
-⚙️ Setup & Installation
+
+**⚙️ Setup & Installation**
 git clone https://github.com/your-username/ai-pdf-chatbot.git
 cd ai-pdf-chatbot
 
@@ -51,19 +55,20 @@ OPENAI_API_KEY=your_api_key
 Run the app:
 
 streamlit run app.py
-📸 Demo
+
+**📸 Demo**
 
 Upload PDFs → Ask questions → Get contextual answers 💬
 (Add screenshots/gif here for more impact)
 
-📌 Reference
+**📌 Reference**
 
 This project was inspired by:
 👉 https://github.com/alejandro-ao/ask-multiple-pdfs
 
 However, I rebuilt and extended the system from scratch, focusing on understanding core concepts instead of just replicating functionality.
 
-⚠️ Challenges Faced & Solutions
+**⚠️ Challenges Faced & Solutions**
 1. Dependency Conflicts (LangChain + Pydantic + NumPy)
 Faced multiple errors like:
 ModuleNotFoundError: pydantic_core
@@ -96,20 +101,24 @@ Migrated to ChatOpenAI for better conversational responses
 App crashed if user queried before processing PDFs
 Solution:
 Added session state checks and warnings
-📈 What I Learned
+
+**📈 What I Learned**
 Deep understanding of RAG architecture
 How vector databases enable semantic search
 Importance of chunking strategies in LLM pipelines
 Handling real-world dependency issues in AI projects
 Trade-offs between local vs API-based embeddings
 Designing stateful conversational systems
-🔮 Future Improvements
+
+
+**🔮 Future Improvements**
 📄 Show source citations (which chunk/page answer came from)
 ⚡ Streaming responses (real-time typing effect)
 💾 Persistent vector storage (save/load FAISS)
 🌐 Deployment (Streamlit Cloud / AWS)
 🧠 Hybrid search (keyword + semantic)
-🙌 Final Note
+
+**🙌 Final Note**
 
 This project was not just about building a chatbot, but about understanding how modern AI systems are architected and deployed.
 
