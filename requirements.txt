@@ -1,0 +1,16 @@
+langchain==0.1.16
+langchain-community==0.0.38
+langchain-openai==0.0.8
+streamlit
+PyPDF2
+python-dotenv
+faiss-cpu
+openai
+huggingface_hub
+langchain-text-splitters==0.0.2
+InstructorEmbedding
+sentence-transformers
+numpy==1.26.4
+pydantic==2.6.4 
+pydantic-core==2.16.3
+tiktoken==0.6.0
