@@ -1,63 +1,37 @@
-# AI PDF Chatbot
+# AI Pdf Chatbot
 
-RAG-based conversational question-answering system for multiple PDF documents.
+## Overview
 
-The app lets a user upload PDFs, extracts text, chunks the content, builds a FAISS vector index, and answers natural-language questions using a conversational retrieval flow.
+RAG-based multi-PDF chatbot using Streamlit, LangChain, FAISS, PDF parsing, embeddings, and conversational QA.
 
-## What It Demonstrates
+Project type: Python project.
 
-- Retrieval-Augmented Generation over user-uploaded documents
-- Multi-PDF ingestion and text extraction
-- Chunking strategy for long documents
-- FAISS-based semantic retrieval
-- Conversation memory for follow-up questions
-- Streamlit product interface for a document QA workflow
+## What This Repository Contains
 
-## Architecture
-
-```text
-PDF uploads
-  -> text extraction
-  -> chunking
-  -> embeddings
-  -> FAISS vector store
-  -> conversational retrieval chain
-  -> Streamlit chat UI
-```
+- `README.md`
+- `app.py`
+- `requirements.txt`
 
 ## Tech Stack
 
-Python, Streamlit, PyPDF2, LangChain, FAISS, OpenAI embeddings, Hugging Face instruction embeddings, conversational memory.
+Python, Streamlit
 
-## Run Locally
-
-1. Install dependencies:
+## How To Run / Use
 
 ```bash
+python -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
-```
-
-2. Create a local environment file:
-
-```bash
-cp .env.example .env
-```
-
-3. Add the required API key or embedding configuration.
-
-4. Start the app:
-
-```bash
 streamlit run app.py
 ```
 
-## Recruiter Notes
+## Current Status
 
-This is a clean applied RAG project: it shows document ingestion, retrieval, vector search, and an end-user workflow. It is relevant for AI assistant, enterprise search, legal/finance document QA, and knowledge-base chatbot roles.
+This repository has enough structure to be understandable from the README and file layout.
 
-## Next Improvements
+## Notes For Reviewers
 
-- Add evaluation questions for retrieval quality
-- Add source citation display
-- Add Docker setup for reproducible deployment
-- Add sample screenshots or a short demo GIF
+- Start with the overview and key files above.
+- If this is a notebook repository, run it in a clean Jupyter or VS Code notebook environment.
+- If this is a frontend app, run the install/build commands before judging the project.
+- Some older practice repositories are kept public for learning history, not as primary portfolio pieces.
