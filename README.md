@@ -1,125 +1,63 @@
-**📚 AI PDF Chatbot (RAG-based Conversational QA System)**
+# AI PDF Chatbot
 
-An end-to-end Retrieval-Augmented Generation (RAG) system that allows users to upload multiple PDFs and interact with them using natural language queries.
+RAG-based conversational question-answering system for multiple PDF documents.
 
-Built to simulate real-world AI systems used in knowledge assistants, document search, and enterprise chatbots.
+The app lets a user upload PDFs, extracts text, chunks the content, builds a FAISS vector index, and answers natural-language questions using a conversational retrieval flow.
 
-**🚀 Features**
-📄 Upload and process multiple PDF documents
-✂️ Intelligent text chunking for better retrieval
-🧠 Semantic search using vector embeddings (FAISS)
-🤖 Context-aware answers using LLMs (OpenAI)
-💬 Conversational memory for multi-turn chat
-⚡ Interactive UI using Streamlit
-🔄 Switch between OpenAI (paid) and HuggingFace (free) embeddings
+## What It Demonstrates
 
-**🧠 How It Works (RAG Pipeline)**
-PDF Ingestion → Extract text using PyPDF2
-Chunking → Split text into overlapping chunks
-Embedding → Convert chunks into vectors
-Vector Store → Store embeddings in FAISS
-Retrieval → Fetch relevant chunks for query
-LLM Generation → Generate answer using retrieved context
-Memory → Maintain chat history for conversation continuity
+- Retrieval-Augmented Generation over user-uploaded documents
+- Multi-PDF ingestion and text extraction
+- Chunking strategy for long documents
+- FAISS-based semantic retrieval
+- Conversation memory for follow-up questions
+- Streamlit product interface for a document QA workflow
 
-**🛠️ Tech Stack**
-Language: Python
-Frameworks/Libraries: LangChain, Streamlit
-LLM: OpenAI (ChatOpenAI)
-Vector DB: FAISS
-Embeddings: OpenAI / HuggingFace
-PDF Processing: PyPDF2
-Environment Management: python-dotenv
+## Architecture
 
-**📂 Project Structure**
-AI-PDF-Chatbot/
-│── app.py
-│── htmlTemplates.py
-│── requirements.txt
-│── .env
-│── README.md
+```text
+PDF uploads
+  -> text extraction
+  -> chunking
+  -> embeddings
+  -> FAISS vector store
+  -> conversational retrieval chain
+  -> Streamlit chat UI
+```
 
-**⚙️ Setup & Installation**
-git clone https://github.com/your-username/ai-pdf-chatbot.git
-cd ai-pdf-chatbot
+## Tech Stack
 
-python -m venv venv
-venv\Scripts\activate  # Windows
+Python, Streamlit, PyPDF2, LangChain, FAISS, OpenAI embeddings, Hugging Face instruction embeddings, conversational memory.
 
+## Run Locally
+
+1. Install dependencies:
+
+```bash
 pip install -r requirements.txt
+```
 
-Create a .env file:
+2. Create a local environment file:
 
-OPENAI_API_KEY=your_api_key
+```bash
+cp .env.example .env
+```
 
-Run the app:
+3. Add the required API key or embedding configuration.
 
+4. Start the app:
+
+```bash
 streamlit run app.py
+```
 
-**📸 Demo**
+## Recruiter Notes
 
-Upload PDFs → Ask questions → Get contextual answers 💬
-(Add screenshots/gif here for more impact)
+This is a clean applied RAG project: it shows document ingestion, retrieval, vector search, and an end-user workflow. It is relevant for AI assistant, enterprise search, legal/finance document QA, and knowledge-base chatbot roles.
 
-**📌 Reference**
+## Next Improvements
 
-This project was inspired by:
-👉 https://github.com/alejandro-ao/ask-multiple-pdfs
-
-However, I rebuilt and extended the system from scratch, focusing on understanding core concepts instead of just replicating functionality.
-
-**⚠️ Challenges Faced & Solutions**
-1. Dependency Conflicts (LangChain + Pydantic + NumPy)
-Faced multiple errors like:
-ModuleNotFoundError: pydantic_core
-NumPy build failures
-Solution:
-Switched to Python 3.10
-Used strict version pinning for LangChain ecosystem
-Rebuilt virtual environment from scratch
-2. Circular Import Errors (tiktoken, regex)
-Errors due to partially installed compiled packages
-Solution:
-Clean reinstall of environment
-Ensured compatible binary versions
-3. PDF Text Extraction Issues
-extract_text() returning None for some pages
-Solution:
-Added null checks to prevent crashes
-4. Performance Bottleneck (Embedding Model)
-Initial use of instructor-xl caused:
-High memory usage (~4GB)
-Slow processing
-Solution:
-Switched to lightweight all-MiniLM-L6-v2 for local usage
-Kept OpenAI embeddings as optional faster alternative
-5. Incorrect LLM Usage
-Used OpenAI() (completion model) instead of chat model
-Solution:
-Migrated to ChatOpenAI for better conversational responses
-6. UX Issues
-App crashed if user queried before processing PDFs
-Solution:
-Added session state checks and warnings
-
-**📈 What I Learned**
-Deep understanding of RAG architecture
-How vector databases enable semantic search
-Importance of chunking strategies in LLM pipelines
-Handling real-world dependency issues in AI projects
-Trade-offs between local vs API-based embeddings
-Designing stateful conversational systems
-
-
-**🔮 Future Improvements**
-📄 Show source citations (which chunk/page answer came from)
-⚡ Streaming responses (real-time typing effect)
-💾 Persistent vector storage (save/load FAISS)
-🌐 Deployment (Streamlit Cloud / AWS)
-🧠 Hybrid search (keyword + semantic)
-
-**🙌 Final Note**
-
-This project was not just about building a chatbot, but about understanding how modern AI systems are architected and deployed.
-
-It reflects hands-on experience with LLMs, RAG pipelines, debugging, and system design, rather than just following a tutorial.
+- Add evaluation questions for retrieval quality
+- Add source citation display
+- Add Docker setup for reproducible deployment
+- Add sample screenshots or a short demo GIF
